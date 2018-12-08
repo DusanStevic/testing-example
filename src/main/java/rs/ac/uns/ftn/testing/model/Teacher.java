@@ -23,7 +23,7 @@ public class Teacher {
 	private String lastName;
 	
 	@ManyToMany(mappedBy = "teachers")
-	private Set<Course> courses = new HashSet<Course>();
+	private Set<Course> courses = new HashSet<>();
 
 	public Long getId() {
 		return id;

@@ -25,13 +25,13 @@ public class Course {
 	String name;
 	
 	@OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
-	private Set<Exam> exams = new HashSet<Exam>();
+	private Set<Exam> exams = new HashSet<>();
 		
 	@ManyToMany
     @JoinTable(name = "teaching",
                joinColumns = @JoinColumn(name="course_id", referencedColumnName="id"),
                inverseJoinColumns = @JoinColumn(name="teacher_id", referencedColumnName="id"))
-	private Set<Teacher> teachers = new HashSet<Teacher>();
+	private Set<Teacher> teachers = new HashSet<>();
 	
 	public Long getId() {
 		return id;

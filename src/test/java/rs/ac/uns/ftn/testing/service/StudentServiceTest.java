@@ -94,7 +94,7 @@ public class StudentServiceTest {
 		when(studentRepositoryMock.findAll()).thenReturn(Arrays.asList(new Student(DB_ID, DB_INDEX, DB_FIRST_NAME, DB_LAST_NAME), new Student(NEW_ID, NEW_INDEX, NEW_FIRST_NAME, NEW_LAST_NAME)));
 		List<Student> students = studentService.findByFirstLetters("p");
 		assertThat(students).hasSize(1);
-		assertEquals(students.get(0).getFirstName(), "Pera");
+		assertEquals("Pera", students.get(0).getFirstName());
 		verify(studentRepositoryMock, times(1)).findAll();
         verifyNoMoreInteractions(studentRepositoryMock);
 	}

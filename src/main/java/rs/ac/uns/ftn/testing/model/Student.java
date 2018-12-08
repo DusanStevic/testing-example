@@ -28,7 +28,7 @@ public class Student {
 	private String lastName;
 
 	@OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
-	private Set<Exam> exams = new HashSet<Exam>();
+	private Set<Exam> exams = new HashSet<>();
 
 	
 

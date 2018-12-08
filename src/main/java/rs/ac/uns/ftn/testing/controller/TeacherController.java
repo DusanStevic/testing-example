@@ -9,10 +9,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ac.uns.ftn.testing.dto.CourseDTO;
@@ -27,7 +30,7 @@ public class TeacherController {
 	@Autowired
 	private TeacherService teacherService;
 	
-	@RequestMapping(value="/all", method = RequestMethod.GET)
+	@GetMapping(value="/all")
 	public ResponseEntity<List<TeacherDTO>> getAllTeachers() {
 		
 		List<Teacher> teachers = teacherService.findAll();
@@ -41,7 +44,7 @@ public class TeacherController {
 		return new ResponseEntity<>(teachersDTO, HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public ResponseEntity<List<TeacherDTO>> getTeachersPage(Pageable page) {
 		
 		Page<Teacher> teachers = teacherService.findAll(page);
@@ -55,7 +58,7 @@ public class TeacherController {
 		return new ResponseEntity<>(teachersDTO, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	@GetMapping(value="/{id}")
 	public ResponseEntity<TeacherDTO> getTeacher(@PathVariable Long id){
 		
 		Teacher teacher = teacherService.findOne(id);
@@ -67,7 +70,7 @@ public class TeacherController {
 		return new ResponseEntity<>(new TeacherDTO(teacher), HttpStatus.OK);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
+	@PostMapping(consumes="application/json")
 	public ResponseEntity<TeacherDTO> saveTeacher(@RequestBody TeacherDTO teacherDTO){
 		
 		Teacher teacher = new Teacher();
@@ -78,7 +81,7 @@ public class TeacherController {
 		return new ResponseEntity<>(new TeacherDTO(teacher), HttpStatus.CREATED);	
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+	@PutMapping(consumes="application/json")
 	public ResponseEntity<TeacherDTO> updateTeacher(@RequestBody TeacherDTO teacherDTO){
 		
 		//a teacher must exist
@@ -95,7 +98,7 @@ public class TeacherController {
 		return new ResponseEntity<>(new TeacherDTO(teacher), HttpStatus.OK);	
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	@DeleteMapping(value="/{id}")
 	public ResponseEntity<Void> deleteTeacher(@PathVariable Long id){
 		
 		Teacher teacher = teacherService.findOne(id);
@@ -108,7 +111,7 @@ public class TeacherController {
 		}
 	}
 	
-	@RequestMapping(value = "/{teacherId}/courses", method = RequestMethod.GET)
+	@GetMapping(value = "/{teacherId}/courses")
 	public ResponseEntity<List<CourseDTO>> getTeacherCourses(
 			@PathVariable Long teacherId) {
 		
