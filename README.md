@@ -3,6 +3,9 @@ Ovo je okvirno uputstvo koje možda neće svima odraditi posao.
 Ideja je da okvirno prikaže koji se servisi mogu uvezati i koristiti kako bi se povećao kvalitet izrade i održavanja projekta.
 Možda će nekome pomoći :blush:
 
+- Ideja
+![Flow](/assets/flow.png)
+
 # Heroku Deployment
 
 - Kreirati nalog na [Heroku](https://heroku.com)
