@@ -120,6 +120,6 @@ deploy:
   </plugin>
 ```
 Kada je sve povezano ili će sve raditi:
-<img src="/assets/bravo.gif" width="300" height="200">
+<img src="/assets/bravo.gif" width="250" height="200">
 Ili neće:
-<img src="/assets/lol.gif" width="300" height="200">
+<img src="/assets/lol.gif" width="250" height="200">
