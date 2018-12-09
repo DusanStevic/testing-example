@@ -1,11 +1,11 @@
-#*#
+*#
 *.iml
 *.ipr
 *.iws
-#*.jar
+*.jar
 *.sw?
-#*~
-#.#*
+*~
+.#*
 .*.md.html
 .DS_Store
 .classpath
