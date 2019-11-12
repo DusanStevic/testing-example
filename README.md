@@ -15,7 +15,7 @@ Možda će nekome pomoći :blush:
 ![Heroku Postgres](/assets/postgres.png)
 - Aktivacijom Postgres baze generisaće se konekcioni parametri koji se mogu sakriti iz konfiguracionih fajlova projekta tako što će se otići na *Settings* tab -> *Reveal Config Vars* -> i upisati kao *key:value* parove
 ![Postgres Credentials](/assets/postgres_creds.png)
-![Heroku Config Vars](/assets/config_vars.png)
+![Heroku Config Vars](/assets/Heroku_config_vars.png)
 - Ažurirati `application.properties` da kredencijali odgovaraju konfiguracionim promenljivama (videti `application.properties` projekta)
 - Ako je projekat upakovan kao `war` fajl, potrebno je dodati fajl sa nazivom `Procfile` (bez ekstenzije) u root folder projekta sa sledećim sadržajem:
 ```
@@ -47,18 +47,23 @@ $ heroku ps:scale web=1 --app <naziv_aplikacije>
 ![Travis CI Repo](/assets/travisci_repo.png)
 - Na *Settings* tabu projekta dodati *Environment Variablu* kao key:value par Heroku API ključ koji se može naći na Heroku profilu korisnika, na tabu *Account* pod sekcijom *API Key*
 ![Heroku API Key](/assets/heroku_api_key.png)
-![Travis CI Environment Variables](/assets/travisci_env_var.png)
+![Travis CI Environment Variables](/assets/travis_ci_vars.png)
 - Napraviti `.travis.yml` fajl u root folderu projekta
 ```
 sudo: required
 language: java
 jdk: oraclejdk8
 
+services:
+  - postgresql
+
 before_install:
   - chmod +x mvnw
 
 script:
   - ./mvnw clean install -DskipTests=false -B
+
+dist: trusty
 
 deploy:
   provider: heroku
