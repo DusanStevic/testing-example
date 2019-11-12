@@ -25,6 +25,10 @@ Možda će nekome pomoći :blush:
 ```
 server.port=${PORT:8080}
 ```
+- Ako GitHub ne prepoznaje projekat kao Java project dodati `system.properties` sa sledećim sadržajem:
+```
+java.runtime.version=1.8
+```
 - Na *Deploy* tabu za *Deployment method* odabrati GitHub (najlakša varijanta)
 - U odeljku *App connected to GitHub* odabrati projekat sa GitHuba za koji radite deploy
 - Možete uključiti automatski redeloy koji će se aktivirati pri svakom novom commitu
