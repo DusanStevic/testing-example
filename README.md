@@ -84,7 +84,7 @@ deploy:
 - Ići na *Setup*, generisati i sačuvati **Token**
 - Odabrati glavni programski jezik i build alat i dobićete generisanu komandu za pokretanje sonara u mavenu
 ![Sonar App](/assets/sonar_analyze.png)
-- U Travis konfiguraciju dodati *Environment Variable* SONAR_TOKEN
+- U Travis konfiguraciju dodati *Environment Variable* SONAR_TOKEN i PROJECT_KEY
 ![Travis CI Sonar Env Var](/assets/travisci_sonar_var.png)
 - Ažurirati `.travis.yml` fajl
 ```
@@ -102,7 +102,7 @@ addons:
 
 script:
   - ./mvnw clean install -DskipTests=false -B
-  - ./mvnw sonar:sonar -Dsonar.projectKey=<generisani_project_key> -Dsonar.organization=stojkovm-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+  - ./mvnw sonar:sonar -Dsonar.projectKey=$PROJECT_KEY -Dsonar.organization=stojkovm-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
 
 deploy:
   provider: heroku
