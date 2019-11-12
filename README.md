@@ -79,6 +79,7 @@ deploy:
 - Napraviti nalog na [SonarCloud](https://sonarcloud.io) (povezati se sa GitHubom)
 - U gornjem desnom uglu nalazi se dugme *+* gde je potrebno odabrati *Analyze new project* i povezati svoj repozitorijum sa SonarCloudom
 ![Sonar Add New Project](/assets/sonar_add.png)
+- Na GitHub nalogu potrebno je dozvoliti repo za analizu
 ![Sonar Repo](/assets/sonar_repo.png)
 - Ići na *Setup*, generisati i sačuvati **Token**
 - Odabrati glavni programski jezik i build alat i dobićete generisanu komandu za pokretanje sonara u mavenu
