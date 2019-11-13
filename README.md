@@ -85,7 +85,7 @@ deploy:
 - Odabrati glavni programski jezik i build alat i dobićete generisanu komandu za pokretanje sonara u mavenu
 ![Sonar App](/assets/sonar_analyze.png)
 - U Travis konfiguraciju dodati *Environment Variable* SONAR_TOKEN i PROJECT_KEY
-![Travis CI Sonar Env Var](/assets/travisci_sonar_var.png)
+![Travis CI Sonar Env Var](/assets/travis_ci_sonar_vars.png)
 - Ažurirati `.travis.yml` fajl
 ```
 sudo: required
