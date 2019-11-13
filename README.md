@@ -92,17 +92,22 @@ sudo: required
 language: java
 jdk: oraclejdk8
 
+services:
+  - postgresql
+
 before_install:
   - chmod +x mvnw
 
 addons:
   sonarcloud:
-  organization: "stojkovm-github"
+  organization: <naziv_organizacije>
   token: $SONAR_TOKEN
 
 script:
   - ./mvnw clean install -DskipTests=false -B
   - ./mvnw sonar:sonar -Dsonar.projectKey=$PROJECT_KEY -Dsonar.organization=stojkovm-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+
+dist: trusty
 
 deploy:
   provider: heroku
